@@ -1,0 +1,17 @@
+{
+  "name": "Mini Game Arcade",
+  "short_name": "Game Arcade",
+  "description": "High-performance browser-based arcade games starting with Fruit Slicing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080c14",
+  "theme_color": "#080c14",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
