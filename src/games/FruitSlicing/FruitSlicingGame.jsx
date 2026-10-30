@@ -13,7 +13,9 @@ import {
   ChevronRight,
   Heart,
   Volume2,
-  VolumeX
+  VolumeX,
+  Home,
+  ArrowLeft
 } from 'lucide-react';
 import { FruitCanvas } from './FruitCanvas';
 import { soundManager } from './engine/SoundManager';
@@ -27,7 +29,8 @@ import {
 export const FruitSlicingGame = ({ 
   isMuted, 
   onToggleSound, 
-  onOpenInstructions 
+  onOpenInstructions,
+  onBackToHome 
 }) => {
   // Game states: 'welcome' | 'playing' | 'paused' | 'gameover'
   const [gameState, setGameState] = useState('welcome');
@@ -285,6 +288,20 @@ export const FruitSlicingGame = ({
 
         {/* Right HUD: Controls */}
         <div className="hud-controls">
+          {onBackToHome && (
+            <button 
+              className="btn-icon hud-btn"
+              onClick={() => {
+                soundManager.playClick();
+                onBackToHome();
+              }}
+              title="Return to Arcade Home"
+              aria-label="Arcade Home"
+            >
+              <Home size={18} />
+            </button>
+          )}
+
           <button 
             className="btn-icon hud-btn"
             onClick={gameState === 'playing' ? pauseGame : resumeGame}
@@ -391,6 +408,19 @@ export const FruitSlicingGame = ({
                   <HelpCircle size={18} />
                   <span>How To Play</span>
                 </button>
+
+                {onBackToHome && (
+                  <button 
+                    className="btn btn-ghost"
+                    onClick={() => {
+                      soundManager.playClick();
+                      onBackToHome();
+                    }}
+                  >
+                    <ArrowLeft size={16} />
+                    <span>Arcade Home</span>
+                  </button>
+                )}
               </div>
 
               {/* Lifetime stats indicator */}
@@ -436,6 +466,19 @@ export const FruitSlicingGame = ({
                   <HelpCircle size={18} />
                   <span>Instructions</span>
                 </button>
+
+                {onBackToHome && (
+                  <button 
+                    className="btn btn-ghost" 
+                    onClick={() => {
+                      soundManager.playClick();
+                      onBackToHome();
+                    }}
+                  >
+                    <Home size={18} />
+                    <span>Exit to Arcade Home</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -501,6 +544,19 @@ export const FruitSlicingGame = ({
                   <span>Select Game Mode</span>
                   <ChevronRight size={18} />
                 </button>
+
+                {onBackToHome && (
+                  <button 
+                    className="btn btn-ghost" 
+                    onClick={() => {
+                      soundManager.playClick();
+                      onBackToHome();
+                    }}
+                  >
+                    <Home size={18} />
+                    <span>Return to Arcade Home</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
