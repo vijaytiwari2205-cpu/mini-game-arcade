@@ -238,7 +238,12 @@ html, body {
 .highscore-card {
   flex-direction: row;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.55rem;
+}
+
+.highscore-card .metric-inner {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Center HUD items */
@@ -379,6 +384,8 @@ html, body {
   justify-content: center;
   padding: 1.5rem;
   z-index: 30;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   animation: fadeIn 0.25s ease-out;
 }
 
@@ -1046,25 +1053,42 @@ html, body {
   }
 
   .canvas-frame {
-    height: 480px;
+    height: 540px;
+  }
+
+  .hero-fruit-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
   }
 
   .hero-title {
     font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
   }
 
   .mode-selection-group {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .mode-card {
-    padding: 0.75rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .mode-card p {
+    font-size: 0.72rem;
   }
 
   .welcome-cta-group {
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
 
   .welcome-cta-group .btn {
@@ -1082,7 +1106,37 @@ html, body {
 
 @media (max-width: 480px) {
   .canvas-frame {
-    height: 420px;
+    height: 530px;
+  }
+
+  .overlay-screen {
+    padding: 1rem 0.75rem;
+  }
+
+  .hero-fruit-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-emoji {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .mode-card {
+    padding: 0.5rem 0.7rem;
+  }
+
+  .mode-icon-title h4 {
+    font-size: 0.85rem;
+  }
+
+  .mode-card p {
+    display: none; /* Keep mode cards ultra clean on small mobile */
   }
 
   .hud-metric {
